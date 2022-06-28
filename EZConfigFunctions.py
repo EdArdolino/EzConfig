@@ -6,13 +6,13 @@
 
 ##
 #
-# ConfigureIt is a project that allows you to easily write changes to your *NIX config files
+# EZConfig is a project that allows you to easily write changes to your *NIX config files
 #
 ##
 
 # Function to start the program and take user input
 def start():
-    print("\n Choose which config file you would like to update:\n 1.) Alias \n 2.) Chrontab")
+    print("\n Choose which config file you would like to update:\n 1.) Alias \n 2.) Crontab")
     response  = input("Please enter a number from the list above:")
     while response not in {"1", "2"}:
             response = input("Invalid input, please enter a number from the list above")
@@ -33,9 +33,9 @@ def start():
     if shellresponse == "3":
         aliashfish()
 
-    # If statement to take binary input and select the chrontab function
+    # If statement to take binary input and select the crontab function
     if response == "2":
-        chrontab()
+        crontab()
 
     # Asks the user if they would like to run the program again
     #run_again()
@@ -55,8 +55,8 @@ def write_to_fish(string):
     with open ("~/.config/fish/config/fish") as file:
         file.writelines(str(string))
 
-# Function to update the chrontab file
-def chrontab():
+# Function to update the crontab file
+def crontab():
     print("In progress")
 
 # Function to input an alias and write it to the alias file (bash)
