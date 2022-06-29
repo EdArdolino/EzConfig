@@ -15,6 +15,6 @@ How to use:
 5. You will be prompted to select an option from the list, Alias or Crontab
 6. Next, you will be asked to enter your desired alias/crontab
 7. Once you have entered the arguments you would like to update, you will be asked if you would like to run the program again
-8. All config files should be automatically reloaded, in case that does not happen, type 'source ~/.bashrc', 'source ~/.zshrc', or 'source ~/.fishrc' based on the shell you are using
+8. All config files will automatically be reloaded upon exit of the program
 
-Note: If you do not 'source' the file after running this program, your alias' will not update, and you will not be able to use them
+Note: If your config files are not updated, you can manually update them using for following command(s) based on your shell: 'source ~/.bashrc', 'source ~/.zshrc', 'source ~/.config/fish/config.fish' 
