@@ -11,6 +11,14 @@
 ##
 
 # Function to start the program and take user input
+import os
+import subprocess
+
+upbash = False
+upzsh = False
+upfish = False
+
+
 def start():
     print("\n Choose which config file you would like to update:\n 1.) Alias \n 2.) Crontab")
     response = input("Please enter a number from the list above:")
@@ -42,28 +50,23 @@ def start():
 
 
 # Writes to bash
-# Working on writing to ~/.bashrc, not currently writing to file
 def write_to_bash(string):
-    with open("~/.bashrc", "a") as file:
+    with open(os.path.join((os.path.expanduser('~/.bashrc'))), "a") as file:
         file.writelines(str(string))
-        file.close()
-
+        print(string)
 
 # Writes to zsh
-# Working on writing to ~/.zshrc, not currently writing to file
 def write_to_zsh(string):
-    with open("~/.zshrc", "a") as file:
+    with open(os.path.join((os.path.expanduser('~/.zshrc'))), "a") as file:
         file.writelines(str(string))
         file.close()
 
 
 # Writes to fish
-# Working on writing to ~/.config/fish/config.fish, not currently writing to file
 def write_to_fish(string):
-    with open("~/.config/fish/config.fish") as file:
+    with open(os.path.join((os.path.expanduser('~/.config/fish/config.fish'))), "a") as file:
         file.writelines(str(string))
         file.close()
-
 
 # Function to update the crontab file
 def crontab():
@@ -74,20 +77,35 @@ def crontab():
 def aliasbash():
     print("Please enter the alias you would like to add to ~/.bashrc:\n")
     bashresponse = input("Alias: ")
-    # In progress to write to file
+    write_to_bash(bashresponse)
+    upbash = True
 
 
 # Function to input an alias and write it to the alias file (bash)
 def aliaszsh():
     print("Please enter the alias you would like to add to ~/.zshrc:\n")
     zshresponse = input("Alias: ")
-    # In progress to write to file
+    write_to_zsh(zshresponse)
+    upzsh = True
 
 # Function to input an alias and write it to the alias file (bash)
 def aliashfish():
     print("Please enter the alias you would like to add to ~/.config/fish/config.fish:\n")
     fishresponse = input("Alias: ")
-    # In progress to write to file
+    write_to_fish(fishresponse)
+    upfish = True
+
+# Function to source ~/.bashrc
+def update_bash():
+    subprocess.run(["source", "~/.bashrc"])
+
+# Function to source ~/.zshrc
+def update_zsh():
+    subprocess.run(["source", "~/.zshrc"])
+
+# Function to source ~/.config/fish/config.fish
+def update_fish():
+    subprocess.run(["source", "~/.config/fish/config.fish"])
 
 # Function to run the program again
 def run_again():
@@ -100,4 +118,11 @@ def run_again():
         start()
     elif "n":
         print("\n Thank you. \n")
+        # If statements to source config files
+        if upbash:
+            update_bash()
+        if upzsh:
+            update_zsh()
+        if upfish():
+            update_fish()
         exit(0)
