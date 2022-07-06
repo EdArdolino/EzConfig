@@ -18,3 +18,7 @@ How to use:
 8. All config files will automatically be reloaded upon exit of the program
 
 Note: If your config files are not updated, you can manually update them using for following command(s) based on your shell: `source ~/.bashrc`, `source ~/.zshrc`, `source ~/.config/fish/config.fish` 
+
+In Progress:
+1. Writing to crontab file
+2. Input sanitization
