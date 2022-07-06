@@ -78,14 +78,6 @@ def write_to_cron(string):
         file.close()
 
 
-# Function to update the crontab file
-# def crontab():
-# with open(os.path.join((os.path.expanduser(Null))), "a") as file:
-# file.writelines(str(string))
-# file.close()
-# print("In progress")
-
-
 # Function to input an alias and write it to the alias file (bash)
 def aliasbash():
     print("Please enter the alias you would like to add to ~/.bashrc:\n")
