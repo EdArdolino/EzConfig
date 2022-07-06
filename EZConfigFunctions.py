@@ -1,6 +1,6 @@
 ##
 # @Author: Ed Ardolino
-# @Version 1.0
+# @Version 1.3
 # @Creation Date: 6-28-2022
 ##
 
@@ -14,11 +14,13 @@
 import os
 import subprocess
 
+# Boolean variables set to false, these will be used later to source the config files
 upbash = False
 upzsh = False
 upfish = False
 
 
+# Function to start the program and take user input
 def start():
     print("\n Choose which config file you would like to update:\n 1.) Alias \n 2.) Crontab")
     response = input("Please enter a number from the list above:")
@@ -32,6 +34,10 @@ def start():
         while shellresponse not in {"1", "2", "3"}:
             shellresponse = input("Invalid input, please enter a number from the list above.")
 
+    # If statements to run the proper function based on the user input
+    if response == "2":
+        cronentry()
+
     if shellresponse == "1":
         aliasbash()
 
@@ -41,10 +47,6 @@ def start():
     if shellresponse == "3":
         aliashfish()
 
-    # If statement to take binary input and select the crontab function
-    if response == "2":
-        crontab()
-
     # Asks the user if they would like to run the program again
     run_again()
 
@@ -53,7 +55,7 @@ def start():
 def write_to_bash(string):
     with open(os.path.join((os.path.expanduser('~/.bashrc'))), "a") as file:
         file.writelines(str(string))
-        print(string)
+
 
 # Writes to zsh
 def write_to_zsh(string):
@@ -68,9 +70,20 @@ def write_to_fish(string):
         file.writelines(str(string))
         file.close()
 
+
+# Writes to crontab
+def write_to_cron(string):
+    with open(os.path.join((os.path.expanduser('~/var/spool/cron'))), "a") as file:
+        file.writelines(str(string))
+        file.close()
+
+
 # Function to update the crontab file
-def crontab():
-    print("In progress")
+# def crontab():
+# with open(os.path.join((os.path.expanduser(Null))), "a") as file:
+# file.writelines(str(string))
+# file.close()
+# print("In progress")
 
 
 # Function to input an alias and write it to the alias file (bash)
@@ -88,6 +101,7 @@ def aliaszsh():
     write_to_zsh(zshresponse)
     upzsh = True
 
+
 # Function to input an alias and write it to the alias file (bash)
 def aliashfish():
     print("Please enter the alias you would like to add to ~/.config/fish/config.fish:\n")
@@ -95,17 +109,29 @@ def aliashfish():
     write_to_fish(fishresponse)
     upfish = True
 
+
+# Function to input the program and parameters into the crontab file (In progress)
+def cronentry():
+    print("Please enter the parameters and program that you would like to add to the crontab file: \n")
+    cronresponse = input("Cron: ")
+    write_to_cron(cronresponse)
+    print("In progress")
+
+
 # Function to source ~/.bashrc
 def update_bash():
     subprocess.run(["source", "~/.bashrc"])
+
 
 # Function to source ~/.zshrc
 def update_zsh():
     subprocess.run(["source", "~/.zshrc"])
 
+
 # Function to source ~/.config/fish/config.fish
 def update_fish():
     subprocess.run(["source", "~/.config/fish/config.fish"])
+
 
 # Function to run the program again
 def run_again():
