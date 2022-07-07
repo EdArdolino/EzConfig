@@ -1,4 +1,4 @@
-# **EZConfig**
+\# **EZConfig**
 
 About: This is a python program to easily turn user input into changes in the selected config file
 
@@ -18,7 +18,7 @@ How to use:
 8. All config files will automatically be reloaded upon exit of the program
 
 Note: If your config files are not updated, you can manually update them using for following command(s) based on your shell: `source ~/.bashrc`, `source ~/.zshrc`, `source ~/.config/fish/config.fish`
-Note (write_to_cron): In order to allow you to write to a crontab, you will need to have an existing crontab file. # You will also need to add your user to the path below. Ex: '~/var/spool/cron/admin' 
+Note (write_to_cron): In order to allow you to write to a crontab, you will need to have an existing crontab file (`creontab -e`). You will also need to add your user to the path. Ex: `~/var/spool/cron/admin` 
 
 In Progress:
 1. Writing to crontab
