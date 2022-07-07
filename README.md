@@ -22,6 +22,5 @@ Note (write_to_cron): In order to allow you to write to a crontab, you will need
 
 In Progress:
 1. Writing to crontab
-	1. Writing to file properly, but throwing unrelated errors
 2. Input sanitization
 	1. New lines added to end of all files, making sure input stays separated
