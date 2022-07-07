@@ -22,6 +22,7 @@ upfish = False
 
 # Function to start the program and take user input
 def start():
+    global shellresponse
     print("\n Choose which config file you would like to update:\n 1.) Alias \n 2.) Crontab")
     response = input("Please enter a number from the list above:")
     while response not in {"1", "2"}:
@@ -55,12 +56,15 @@ def start():
 def write_to_bash(string):
     with open(os.path.join((os.path.expanduser('~/.bashrc'))), "a") as file:
         file.writelines(str(string))
+        file.write("\n")
+        file.close()
 
 
 # Writes to zsh
 def write_to_zsh(string):
     with open(os.path.join((os.path.expanduser('~/.zshrc'))), "a") as file:
         file.writelines(str(string))
+        file.write("\n")
         file.close()
 
 
@@ -68,13 +72,17 @@ def write_to_zsh(string):
 def write_to_fish(string):
     with open(os.path.join((os.path.expanduser('~/.config/fish/config.fish'))), "a") as file:
         file.writelines(str(string))
+        file.write("\n")
         file.close()
 
 
 # Writes to crontab
+# In order to allow you to write to a crontab, you will need to have an existing crontab file
+# You will also need to add your user to the path below. Ex: '~/var/spool/cron/admin'
 def write_to_cron(string):
-    with open(os.path.join((os.path.expanduser('~/var/spool/cron'))), "a") as file:
+    with open(os.path.join((os.path.expanduser('/var/spool/cron/'))), "a") as file:
         file.writelines(str(string))
+        file.write("\n")
         file.close()
 
 
@@ -103,11 +111,11 @@ def aliashfish():
 
 
 # Function to input the program and parameters into the crontab file (In progress)
+# Writing to file successfully, but throwing errors after the fact
 def cronentry():
     print("Please enter the parameters and program that you would like to add to the crontab file: \n")
     cronresponse = input("Cron: ")
     write_to_cron(cronresponse)
-    print("In progress")
 
 
 # Function to source ~/.bashrc
@@ -137,10 +145,10 @@ def run_again():
     elif "n":
         print("\n Thank you. \n")
         # If statements to source config files
-        if upbash:
-            update_bash()
-        if upzsh:
-            update_zsh()
-        if upfish():
-            update_fish()
-        exit(0)
+    if upbash:
+        update_bash()
+    if upzsh:
+        update_zsh()
+    if upfish():
+        update_fish()
+    exit(0)
