@@ -1,6 +1,6 @@
 ##
 # @Author: Ed Ardolino
-# @Version 1.3
+# @Version 1.5
 # @Creation Date: 6-28-2022
 ##
 
@@ -22,7 +22,6 @@ upfish = False
 
 # Function to start the program and take user input
 def start():
-    global shellresponse
     print("\n Choose which config file you would like to update:\n 1.) Alias \n 2.) Crontab")
     response = input("Please enter a number from the list above:")
     while response not in {"1", "2"}:
@@ -35,18 +34,18 @@ def start():
         while shellresponse not in {"1", "2", "3"}:
             shellresponse = input("Invalid input, please enter a number from the list above.")
 
+        if shellresponse == "1":
+            aliasbash()
+
+        if shellresponse == "2":
+            aliaszsh()
+
+        if shellresponse == "3":
+            aliashfish()
+
     # If statements to run the proper function based on the user input
     if response == "2":
         cronentry()
-
-    if shellresponse == "1":
-        aliasbash()
-
-    if shellresponse == "2":
-        aliaszsh()
-
-    if shellresponse == "3":
-        aliashfish()
 
     # Asks the user if they would like to run the program again
     run_again()
@@ -149,6 +148,6 @@ def run_again():
         update_bash()
     if upzsh:
         update_zsh()
-    if upfish():
+    if upfish:
         update_fish()
     exit(0)
