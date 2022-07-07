@@ -17,8 +17,11 @@ How to use:
 7. Once you have entered the arguments you would like to update, you will be asked if you would like to run the program again
 8. All config files will automatically be reloaded upon exit of the program
 
-Note: If your config files are not updated, you can manually update them using for following command(s) based on your shell: `source ~/.bashrc`, `source ~/.zshrc`, `source ~/.config/fish/config.fish` 
+Note: If your config files are not updated, you can manually update them using for following command(s) based on your shell: `source ~/.bashrc`, `source ~/.zshrc`, `source ~/.config/fish/config.fish`
+Note (write_to_cron): In order to allow you to write to a crontab, you will need to have an existing crontab file. # You will also need to add your user to the path below. Ex: '~/var/spool/cron/admin' 
 
 In Progress:
-1. Writing to crontab file
+1. Writing to crontab
+	1. Writing to file properly, but throwing unrelated errors
 2. Input sanitization
+	1. New lines added to end of all files, making sure input stays separated
