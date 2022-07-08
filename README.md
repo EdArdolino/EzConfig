@@ -1,4 +1,4 @@
-\# **EZConfig**
+# **EZConfig**
 
 About: This is a python program to easily turn user input into changes in the selected config file
 
