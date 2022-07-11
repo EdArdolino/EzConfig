@@ -88,6 +88,8 @@ def write_to_cron(string):
 # Function to input an alias and write it to the alias file (bash)
 def aliasbash():
     print("Please enter the alias you would like to add to ~/.bashrc:\n")
+    print('Formt using the following syntax: up="sudo apt update && sudo apt upgrade -y"\n')
+    print('Note: Make sure to include the double quotes ("") as the alias willl not function without them\n')
     bashresponse = input("Alias: ")
     write_to_bash(bashresponse)
     upbash = True
@@ -96,6 +98,8 @@ def aliasbash():
 # Function to input an alias and write it to the alias file (bash)
 def aliaszsh():
     print("Please enter the alias you would like to add to ~/.zshrc:\n")
+    print('Format using the following syntax: up="sudo apt update && sudo apt upgrade -y"\n')
+    print('Note: Make sure to include the double quotes ("") as the alias will not function without them\n')
     zshresponse = input("Alias: ")
     write_to_zsh(zshresponse)
     upzsh = True
@@ -104,6 +108,8 @@ def aliaszsh():
 # Function to input an alias and write it to the alias file (bash)
 def aliashfish():
     print("Please enter the alias you would like to add to ~/.config/fish/config.fish:\n")
+    print('Format using the following syntax: up="sudo apt update && sudo apt upgrade -y"\n')
+    print('Note: Make sure to include the double quotes ("") as the alias will not function without them\n')
     fishresponse = input("Alias: ")
     write_to_fish(fishresponse)
     upfish = True
