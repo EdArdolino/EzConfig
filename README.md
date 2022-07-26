@@ -23,4 +23,6 @@ Note (write_to_cron): In order to allow you to write to a crontab, you will need
 In Progress:
 1. Writing to crontab
 2. Input sanitization
-	1. Added prints to alert the user of proper syntax, will be added full input sanatization soon
+    1. Added prints to alert the user of proper syntax, will be added full input sanitization soon
+3. Added `alias.txt` to give a list of alias' I use on my personal system.
+   1. As I update my aliases, this file will be updated as well
