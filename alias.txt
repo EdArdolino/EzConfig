@@ -1,0 +1,12 @@
+Below are some alias' I have on my personal system, as well as alias' I have used in the past. My current system is an Arch based distribution
+
+Debian:
+alias up="sudo apt update && sudo apt upgrade -y" (Updates and upgrades the system)
+alias ls="ls -l" (Lists contents of current directory, along with permissions)
+
+Arch:
+alias up="sudo pacman -Syu && sudo pacman -Syyu" (Updates arch based systems)
+alias l="ls -l" (Lists contents of current directory, along with permissions)
+alias down="sudo systemctl poweroff" (Powers off the system instantly, removed timer)
+alias sourcefish="source", "~/.config/fish/config.fish" (Sources config file of my shell. This is specific to your system, I use fish, while others may use bash or zsh)
+alias pac="sudo pacman -S" (Allows for easier package installation. Ex: pac micro (installs micro, terminal based text editor)
